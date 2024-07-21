@@ -1,0 +1,29 @@
+.nav-bar {
+    background-color: black;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .nav-bar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-bar ul li {
+    display: inline;
+  }
+  
+  .nav-bar ul li a {
+    color: red;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+  
+  .nav-bar ul li a:hover {
+    text-decoration: underline;
+  }
+  
