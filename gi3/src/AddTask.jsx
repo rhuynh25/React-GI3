@@ -1,36 +1,41 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { Component } from 'react';
 
-const AddTask = ({ addTask }) => {
-  const [task, setTask] = useState('');
-  const navigate = useNavigate();
-
-  const handleChange = (event) => {
-    setTask(event.target.value);
+class AddTask extends Component {
+  state = {
+    title: '',
+    description: ''
   };
 
-  const handleSubmit = (event) => {
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleSubmit = (event) => {
     event.preventDefault();
-    const newTask = { id: Date.now(), text: task };
-    addTask(newTask);
-    navigate('/tasks');
+    const newTask = {
+      id: Date.now().toString(),
+      title: this.state.title,
+    };
+    this.props.addTask(newTask);
   };
 
-  return (
-    <div>
-      <h2>Add Task</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={task}
-          onChange={handleChange}
-          placeholder="Enter task"
-          required
-        />
-        <button type="submit">Add Task</button>
-      </form>
-    </div>
-  );
-};
+  render() {
+    return (
+      <div>
+        <h1>Add Task</h1>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            name="title"
+            value={this.state.title}
+            onChange={this.handleChange}
+            placeholder="Title"
+          />
+          <button type="submit">Add</button>
+        </form>
+      </div>
+    );
+  }
+}
 
 export default AddTask;

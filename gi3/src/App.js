@@ -5,7 +5,7 @@ import NavBar from './NavBar';
 import Counter from './Counter';
 import MovieSearch from './MovieSearch';
 import MovieDetail from './MovieDetail';
-import Task from './Task'; 
+import Task from './Task';
 import TaskDetail from './TaskDetail';
 import AddTask from './AddTask';
 import EditTask from './EditTask';
@@ -16,7 +16,8 @@ class App extends Component {
   };
 
   addTask = (task) => {
-    this.setState({ tasks: [...this.state.tasks, task] });
+    const newTask = { id: this.state.tasks.length + 1, ...task };
+    this.setState({ tasks: [...this.state.tasks, newTask] });
   };
 
   updateTask = (updatedTask) => {

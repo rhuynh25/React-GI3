@@ -5,8 +5,8 @@ class Task extends Component {
   render() {
     return (
       <div>
-        <h1>List</h1>
-        <Link to="/add-task">Add Task</Link>
+        <h1>Task List</h1>
+        <Link to="/add-task">Added Task</Link>
         <ul>
           {this.props.tasks.map(task => (
             <li key={task.id}>
