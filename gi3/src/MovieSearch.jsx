@@ -12,7 +12,7 @@ class MovieSearch extends Component {
   };
 
   searchMovies = async () => {
-    const apiKey = '942a52edc0aeca64a6d1e54722146825';
+    const apiKey = 'API KEY HERE';
     const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${this.state.query}`);
     const data = await response.json();
     this.setState({ movies: data.results });
